@@ -3,15 +3,20 @@ import User from "./user.model";
 
 export const createUserToDB = async (payload: IUser)
     : Promise<IUser> => {
-    const user = new User(payload)
 
-    await user.save();
+        //creating a new user
+    const user = new User(payload) //user -> class user ->instance
 
+    await user.save(); //build in intance methods custom instance
+
+    console.log(user.fullName())
     return user
 }
 
 export const getUsersFromDB = async (): Promise<IUser[]> => {
     const users = await User.find();
+  
+  
     return users;
 }
 
@@ -23,3 +28,14 @@ export const getUsersByIdFromDB = async(payload:
     return user;
 };
 
+export const getAdminUsersFromDB = async()=> {
+   
+const admins = await User.getAdminUsers();
+
+return admins;
+//class ->Attach ->Method ->Directly cll using class
+//user= new user
+//user. instance methods
+//user.getAdminUser()
+
+};
