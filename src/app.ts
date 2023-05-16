@@ -45,3 +45,7 @@ export default app;
  route function -> controller.ts
 Database Query Function -> service
  */
+
+//save -save() -->Method -> data validate -> schema
+
+//save()
